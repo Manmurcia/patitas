@@ -29,8 +29,8 @@
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#mascotas">Mascotas</a></li>
-                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#adopta">Adopta</a></li>
+                    <li><a href="#ayuda">Ayuda</a></li>
                     <li><a class="btn-nav" href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -41,7 +41,7 @@
         <section id="inicio" class="hero">
             <img src="img/hero.jpg" alt="Una familia disfruta de un picnic en el parque junto a su perro" width="1600" height="1087">
             <div class="contenedor hero-texto">
-                <h2>Patitas</h2>
+                <h1>Patitas</h1>
                 <p>Deja una huella en tu corazón</p>
                 <div class="acciones">
                     <a class="btn" href="#mascotas">Conoce a nuestros huéspedes</a>
@@ -66,23 +66,37 @@
             <div class="contenedor">
                 <h2 class="centrado">Conoce a nuestros huéspedes</h2>
                 <p class="centrado sub">Están en busca de un hogar amoroso.</p>
+                <div class="filtros" role="search" aria-label="Buscar mascotas">
+                    <label for="buscar-mascota">Buscar por nombre</label>
+                    <input id="buscar-mascota" type="search" placeholder="Ej. Docker" autocomplete="off">
+                    <label for="tipo-mascota">Especie</label>
+                    <select id="tipo-mascota">
+                        <option value="">Todas</option>
+                        <option value="perro">Perros</option>
+                        <option value="gato">Gatos</option>
+                        <option value="ave">Aves</option>
+                        <option value="otro">Otros</option>
+                    </select>
+                    <p id="sin-resultados" role="status" hidden>No encontramos mascotas con esos filtros.</p>
+                    <p id="estado-catalogo" class="estado-formulario error" role="status" hidden></p>
+                </div>
                 <div class="grid-pets">
-                    <article class="pet">
+                    <article class="pet" data-id="docker" data-species="perro">
                         <img src="img/docker.jpg" alt="Docker, cachorro salchicha de orejas largas, en brazos de una persona" width="600" height="600" loading="lazy">
                         <div class="pet-info"><h3>Docker</h3><span class="tag">Perro · Cachorro</span><p>Tranquilo y mimoso. Le encanta que lo carguen.</p>
                         <a class="btn btn-sm" href="#contacto" data-pet="Docker">Quiero conocerlo</a></div>
                     </article>
-                    <article class="pet">
+                    <article class="pet" data-id="lulu-lili" data-species="perro">
                         <img src="img/lulu-lili.jpg" alt="Lulu y Lili, dos cachorros jugando juntos" width="600" height="600" loading="lazy">
                         <div class="pet-info"><h3>Lulu y Lili</h3><span class="tag">Perras · Cachorras</span><p>Inseparables y juguetonas. Buscan hogar juntas.</p>
                         <a class="btn btn-sm" href="#contacto" data-pet="Lulu y Lili">Quiero conocerlas</a></div>
                     </article>
-                    <article class="pet">
+                    <article class="pet" data-id="lorenzo" data-species="ave">
                         <img src="img/lorenzo.jpg" alt="Lorenzo, un loro verde posado sobre una mano" width="600" height="600" loading="lazy">
                         <div class="pet-info"><h3>Lorenzo</h3><span class="tag">Loro</span><p>Curioso y sociable. Se sube a tu mano sin miedo.</p>
                         <a class="btn btn-sm" href="#contacto" data-pet="Lorenzo">Quiero conocerlo</a></div>
                     </article>
-                    <article class="pet">
+                    <article class="pet" data-id="mr-bread" data-species="gato">
                         <img src="img/mr-bread.jpg" alt="Mr Bread, un gato con una rebanada de pan alrededor de la cara" width="600" height="600" loading="lazy">
                         <div class="pet-info"><h3>Mr Bread</h3><span class="tag">Gato</span><p>El más divertido del refugio. Ideal para quien ama reír.</p>
                         <a class="btn btn-sm" href="#contacto" data-pet="Mr Bread">Quiero conocerlo</a></div>
@@ -94,7 +108,8 @@
         <section id="blog" class="bloque">
             <div class="contenedor">
                 <h2 class="centrado">Temas en nuestro refugio</h2>
-                <div class="grid-blog">
+                <p id="estado-blog" class="estado-formulario error" role="status" hidden></p>
+                <div id="grid-blog" class="grid-blog">
                     <article class="post">
                         <img src="img/adopta.jpg" alt="Una mano acaricia a un perro en una jornada de adopción" width="900" height="568" loading="lazy">
                         <div class="post-info"><h3>Adopta a tu mascota ideal</h3><p>Piensa en tu espacio, tu tiempo y tu energía. La mejor mascota es la que encaja con tu estilo de vida.</p></div>
@@ -137,7 +152,11 @@
             <div class="contenedor centrado">
                 <h2>¿No puedes adoptar? Puedes ayudar</h2>
                 <p>Con donaciones, apadrinando a un animal o como voluntario, cada gesto suma.</p>
-                <a class="btn" href="#contacto" data-pet="Quiero ayudar">Quiero ayudar</a>
+                <div class="acciones ayuda-acciones">
+                    <a class="btn" href="#contacto" data-pet="Quiero ser voluntario">Quiero ser voluntario</a>
+                    <a class="btn btn-claro" href="#contacto" data-pet="Quiero apadrinar">Quiero apadrinar</a>
+                    <a class="btn btn-claro" id="donar" href="#contacto" data-pet="Quiero donar">Quiero donar</a>
+                </div>
             </div>
         </section>
 
@@ -147,9 +166,10 @@
                     <h2>Contáctanos</h2>
                     <p>Escríbenos y te respondemos lo antes posible.</p>
                     <ul class="datos">
-                        <li><strong>Correo:</strong> contacto@patitas.org</li>
-                        <li><strong>Teléfono:</strong> +57 300 000 0000</li>
-                        <li><strong>Horario:</strong> Lunes a sábado, 9:00 a. m. – 5:00 p. m.</li>
+                        <li><strong>Correo:</strong> <a id="contact-email" href="#contacto">Pendiente de configurar</a></li>
+                        <li><strong>Teléfono:</strong> <a id="contact-phone">Pendiente de configurar</a></li>
+                        <li><strong>Horario:</strong> <span id="opening-hours">Pendiente de configurar</span></li>
+                        <li class="nota-configuracion">Completa los datos reales del refugio antes de publicar el sitio.</li>
                     </ul>
                 </div>
                 <form id="form" class="form">
@@ -164,12 +184,15 @@
                         <option>Lulu y Lili</option>
                         <option>Lorenzo</option>
                         <option>Mr Bread</option>
-                        <option>Quiero ayudar</option>
+                        <option>Quiero ser voluntario</option>
+                        <option>Quiero apadrinar</option>
+                        <option>Quiero donar</option>
                     </select>
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <label class="consentimiento"><input name="consentimiento" type="checkbox" required> Acepto que el refugio use estos datos para responder a mi solicitud.</label>
                     <button class="btn" type="submit">Enviar mensaje</button>
-                    <p id="ok" class="ok" role="status" hidden>¡Gracias! Se abrirá tu correo para enviar el mensaje.</p>
+                    <p id="estado-formulario" class="estado-formulario" role="status" aria-live="polite" hidden></p>
                 </form>
             </div>
         </section>
@@ -178,15 +201,12 @@
     <footer>
         <div class="contenedor pie">
             <p>Patitas &copy; 2021 – <span id="year">2026</span> · Manuel Felipe Murcia Suárez</p>
-            <div class="sociales">
-                <a class="icon-facebook" href="#" aria-label="Facebook"></a>
-                <a class="icon-twitter" href="#" aria-label="Twitter"></a>
-                <a class="icon-instagram" href="#" aria-label="Instagram"></a>
-                <a class="icon-pinterest" href="#" aria-label="Pinterest"></a>
-            </div>
+            <a href="admin.html">Administración</a>
         </div>
     </footer>
 
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

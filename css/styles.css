@@ -39,7 +39,7 @@ ul,ol{list-style:none}
 .hero img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(33,74,92,.85),rgba(33,74,92,.25))}
 .hero-texto{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%)}
-.hero h2{font-size:clamp(2.6rem,8vw,4.5rem)}
+.hero h1{font-size:clamp(2.6rem,8vw,4.5rem)}
 .hero p{font-size:clamp(1.1rem,3vw,1.6rem);margin:.5rem 0 1.5rem}
 .acciones{display:flex;flex-wrap:wrap;gap:.8rem}
 
@@ -62,6 +62,10 @@ ul,ol{list-style:none}
 .pet-info h3{color:var(--primary)}
 .tag{display:inline-block;background:var(--rose);font-size:.8rem;font-weight:700;padding:.1rem .7rem;border-radius:999px;margin:.4rem 0}
 .pet-info p{margin-bottom:1rem;font-size:.95rem}
+.filtros{display:grid;grid-template-columns:1fr;gap:.4rem;margin:0 auto 2rem;max-width:600px}
+.filtros label{font-weight:700}
+.filtros input,.filtros select{font:inherit;padding:.7rem;border:2px solid var(--rose);border-radius:.6rem;background:#fff;width:100%}
+.filtros [role=status]{grid-column:1/-1;text-align:center;color:var(--primary-dark);font-weight:700}
 
 /* Blog */
 .grid-blog{display:grid;gap:1.5rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
@@ -83,6 +87,7 @@ video{width:100%;margin-top:1.5rem;border-radius:1.5rem;box-shadow:var(--shadow)
 .ayuda{background:linear-gradient(rgba(33,74,92,.82),rgba(33,74,92,.82)),url(../img/ayuda.jpg) center/cover;color:#fff;padding:4.5rem 0}
 .ayuda h2{color:#fff;font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:.6rem}
 .ayuda p{margin-bottom:1.5rem}
+.ayuda-acciones{justify-content:center}
 
 /* Contacto */
 .dos{display:grid;gap:2rem}
@@ -92,14 +97,79 @@ video{width:100%;margin-top:1.5rem;border-radius:1.5rem;box-shadow:var(--shadow)
 .form input,.form select,.form textarea{font:inherit;padding:.7rem;border:2px solid var(--rose);border-radius:.6rem;background:#fff;width:100%}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--primary);outline:0}
 .form .btn{margin-top:1rem}
-.ok{color:#1d7a46;font-weight:700}
+.consentimiento{display:flex;align-items:flex-start;gap:.6rem;font-weight:400!important}
+.consentimiento input{width:auto;margin-top:.4rem}
+.estado-formulario{font-weight:700}
+.estado-formulario.exito{color:#1d7a46}
+.estado-formulario.error{color:#a12d2d}
+.estado-formulario.info{color:var(--primary-dark)}
+.nota-configuracion{font-size:.85rem;color:#704e16}
+
+/* Administración */
+.admin-body{background:#f4f6f8}
+.admin-body [hidden]{display:none!important}
+.admin-topbar{height:var(--h);position:sticky;top:0;z-index:100;background:var(--primary-dark);color:#fff;padding:0 max(4%,calc((100% - 1200px)/2));display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.admin-brand{font-family:"Poppins",sans-serif;font-weight:700;text-decoration:none;font-size:1.1rem}
+.admin-brand span{font-family:"Nunito",sans-serif;font-size:.9rem;font-weight:400;margin-left:.4rem;opacity:.85}
+.admin-top-actions{display:flex;align-items:center;gap:1rem}
+.admin-top-actions>a{color:#fff}
+.admin-top-actions .btn{padding:.45rem 1rem}
+.admin-main{width:100%;max-width:1400px;margin:auto;padding:1.5rem 1.5rem 4rem}
+.admin-login{max-width:480px;margin:7vh auto;padding:2rem}
+.admin-login h1{color:var(--primary);margin:.3rem 0}
+.admin-login>p{margin-bottom:.8rem}
+.admin-login .btn{margin-top:1rem}
+.admin-eyebrow{font-size:.75rem;letter-spacing:.1em;font-weight:700;color:var(--soft)}
+.admin-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:2rem;align-items:start}
+.admin-sidebar{position:sticky;top:calc(var(--h) + 1rem);min-height:calc(100vh - var(--h) - 3rem);background:#fff;padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column}
+.admin-nav{display:grid;gap:.35rem;margin-top:1rem}
+.admin-nav button,.admin-quick-actions button{font:inherit;text-align:left;cursor:pointer;border:0;background:transparent;padding:.7rem .8rem;border-radius:.55rem;color:var(--text)}
+.admin-nav button:hover,.admin-quick-actions button:hover{background:var(--suave)}
+.admin-nav button.active{background:var(--primary);color:#fff;font-weight:700}
+.admin-user{border-top:1px solid var(--suave);margin-top:auto;padding-top:1rem;font-size:.82rem;overflow-wrap:anywhere}
+.admin-content{min-width:0}
+.admin-view{padding:.5rem 0}
+.admin-view[hidden]{display:none}
+.admin-page-heading{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.3rem 0 1.5rem}
+.admin-page-heading h1{color:var(--primary);font-size:2rem}
+.dashboard-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:1rem}
+.dashboard-card,.admin-card{background:#fff;padding:1.25rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+.dashboard-card{display:flex;flex-direction:column;gap:.25rem;border-top:4px solid var(--primary)}
+.dashboard-card:nth-child(2){border-top-color:var(--accent)}
+.dashboard-card:nth-child(3){border-top-color:#74a58a}
+.dashboard-card:nth-child(4){border-top-color:#b58f56}
+.dashboard-card:nth-child(5){border-top-color:#8370a1}
+.dashboard-card span{font-size:.87rem;color:#52636a}
+.dashboard-card strong{font-family:"Poppins",sans-serif;font-size:1.8rem;color:var(--primary-dark)}
+.dashboard-card small{font-size:.8rem;color:#69777b}
+.dashboard-columns{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,.8fr);gap:1rem;margin-top:1rem}
+.admin-card h2{font-size:1.15rem;color:var(--primary);margin-bottom:1rem}
+.admin-card-heading{display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.admin-card-heading h2{margin-bottom:.8rem}
+.text-button{border:0;background:none;color:var(--primary);text-decoration:underline;font:inherit;cursor:pointer}
+.admin-quick-actions{display:flex;flex-direction:column;align-items:stretch}
+.admin-quick-actions button{border:1px solid var(--suave);margin:.2rem 0}
+.admin-section{margin-top:1.5rem}
+.admin-section h2{color:var(--primary);margin-bottom:1rem}
+.admin-animal-form,.admin-settings-form{max-width:700px;margin:0}
+.admin-settings-form .btn{margin-top:1rem}
+.admin-note{margin:-.4rem 0 1rem;color:#52636a}
+.admin-list{overflow-x:auto;background:#fff;border-radius:.5rem}
+.admin-list table{width:100%;border-collapse:collapse}
+.admin-list th,.admin-list td{padding:.7rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--suave);max-width:320px;overflow-wrap:anywhere}
+.admin-list th{background:var(--suave);white-space:nowrap}
+.admin-list td .btn{margin:.15rem}
+.admin-list select{font:inherit;padding:.35rem;border:1px solid var(--rose);border-radius:.4rem;max-width:150px}
+.admin-list a{color:var(--primary-dark)}
+.admin-empty{padding:1rem;color:#59696f}
+.admin-list select:disabled,.admin-list button:disabled{opacity:.6}
+.donation-cards{margin-bottom:1rem}
+.estado-formulario[hidden]{display:none}
 
 /* Footer */
 footer{background:var(--primary-dark);color:#fff;padding:2rem 0}
 .pie{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center}
-.sociales{display:flex;gap:1rem;font-size:1.6rem}
-.sociales a{text-decoration:none;opacity:.85;transition:.2s}
-.sociales a:hover{opacity:1;color:var(--rose)}
+.pie>a{color:#fff}
 
 /* Escritorio */
 @media (min-width:900px){
@@ -112,5 +182,26 @@ footer{background:var(--primary-dark);color:#fff;padding:2rem 0}
     .tres{grid-template-columns:repeat(3,1fr)}
     .dos{grid-template-columns:1fr 1.2fr;align-items:start}
     .pie{flex-direction:row;justify-content:space-between;text-align:left}
+    .filtros{grid-template-columns:auto minmax(160px,1fr) auto minmax(140px,.7fr);align-items:center}
+    .filtros [role=status]{grid-column:1/-1}
+}
+@media(max-width:900px){
+    .admin-layout{grid-template-columns:1fr;gap:1rem}
+    .admin-sidebar{position:static;min-height:0;padding:.8rem}
+    .admin-sidebar>.admin-eyebrow,.admin-user{display:none}
+    .admin-nav{display:flex;overflow-x:auto;margin:0}
+    .admin-nav button{white-space:nowrap}
+    .dashboard-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+    .admin-main{padding:1rem .75rem 3rem}
+    .admin-brand span{display:none}
+    .admin-topbar{padding:0 .8rem}
+    .admin-top-actions{gap:.5rem}
+    .admin-top-actions>a{font-size:.85rem}
+    .dashboard-columns{grid-template-columns:1fr}
+    .dashboard-card,.admin-card{padding:1rem}
+    .admin-page-heading{align-items:flex-start}
+    .admin-page-heading h1{font-size:1.6rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}

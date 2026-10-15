@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administración | Patitas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-body">
+    <header class="admin-topbar">
+        <a class="admin-brand" href="index.html">Patitas <span>Administración</span></a>
+        <div class="admin-top-actions">
+            <a href="index.html">Ver sitio</a>
+            <button id="logout" class="btn btn-sm" type="button" hidden>Cerrar sesión</button>
+        </div>
+    </header>
+    <main class="admin-main">
+        <div class="contenedor">
+            <p id="admin-status" class="estado-formulario" role="status" aria-live="polite"></p>
+
+            <form id="login-form" class="form admin-login">
+                <span class="admin-eyebrow">PANEL DEL REFUGIO</span>
+                <h1>Inicia sesión</h1>
+                <p>Gestiona las mascotas, solicitudes y la información de Patitas.</p>
+                <label for="admin-email">Correo electrónico</label>
+                <input id="admin-email" name="email" type="email" required autocomplete="username">
+                <label for="admin-password">Contraseña</label>
+                <input id="admin-password" name="password" type="password" required autocomplete="current-password">
+                <button class="btn" type="submit">Entrar al panel</button>
+            </form>
+
+            <div id="admin-panel" class="admin-layout" hidden>
+                <aside class="admin-sidebar" aria-label="Módulos de administración">
+                    <p class="admin-eyebrow">GESTIÓN</p>
+                    <nav class="admin-nav">
+                        <button type="button" data-view="dashboard" class="active">Resumen</button>
+                        <button type="button" data-view="animals">Mascotas</button>
+                        <button type="button" data-view="adoptions">Adopciones</button>
+                        <button type="button" data-view="messages">Mensajes</button>
+                        <button type="button" data-view="content">Blog y contenido</button>
+                        <button type="button" data-view="donations">Donaciones</button>
+                        <button type="button" data-view="settings">Datos del sitio</button>
+                    </nav>
+                    <p class="admin-user" id="admin-user"></p>
+                </aside>
+
+                <div class="admin-content">
+                    <section class="admin-view" data-panel="dashboard">
+                        <div class="admin-page-heading">
+                            <div><span class="admin-eyebrow">PANEL DEL REFUGIO</span><h1>Resumen</h1></div>
+                            <button id="refresh-dashboard" type="button" class="btn btn-secondary btn-sm">Actualizar datos</button>
+                        </div>
+                        <div class="dashboard-cards">
+                            <article class="dashboard-card"><span>Mascotas disponibles</span><strong id="stat-animals">—</strong><small id="stat-animals-total">Cargando catálogo</small></article>
+                            <article class="dashboard-card"><span>Adopciones pendientes</span><strong id="stat-adoptions">—</strong><small id="stat-adoptions-total">Solicitudes por revisar</small></article>
+                            <article class="dashboard-card"><span>Mensajes nuevos</span><strong id="stat-messages">—</strong><small id="stat-messages-total">Bandeja de contacto</small></article>
+                            <article class="dashboard-card"><span>Donaciones registradas</span><strong id="stat-donations">—</strong><small id="stat-donations-total">Historial del procesador</small></article>
+                            <article class="dashboard-card"><span>Publicaciones activas</span><strong id="stat-posts">—</strong><small id="stat-posts-total">Contenido del blog</small></article>
+                        </div>
+                        <div class="dashboard-columns">
+                            <section class="admin-card">
+                                <div class="admin-card-heading"><h2>Actividad reciente</h2><button type="button" class="text-button" data-go="adoptions">Ver solicitudes</button></div>
+                                <div id="recent-activity" class="admin-list"></div>
+                            </section>
+                            <section class="admin-card admin-quick-actions">
+                                <h2>Accesos rápidos</h2>
+                                <button type="button" data-go="animals" data-action="new-animal">+ Registrar mascota</button>
+                                <button type="button" data-go="adoptions">Revisar adopciones</button>
+                                <button type="button" data-go="messages">Leer mensajes</button>
+                                <button type="button" data-go="settings">Editar datos del sitio</button>
+                            </section>
+                        </div>
+                    </section>
+
+                    <section class="admin-view" data-panel="animals" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">CATÁLOGO</span><h1>Mascotas</h1></div></div>
+                        <div class="admin-card">
+                            <h2 id="animal-form-heading">Registrar mascota</h2>
+                            <form id="animal-form" class="form admin-animal-form">
+                                <input name="id" type="hidden">
+                                <label for="animal-name">Nombre</label>
+                                <input id="animal-name" name="name" required maxlength="100">
+                                <label for="animal-species">Especie</label>
+                                <select id="animal-species" name="species" required>
+                                    <option value="perro">Perro</option><option value="gato">Gato</option>
+                                    <option value="ave">Ave</option><option value="otro">Otro</option>
+                                </select>
+                                <label for="animal-status">Estado</label>
+                                <select id="animal-status" name="status" required>
+                                    <option value="available">Disponible</option><option value="adopted">Adoptado</option>
+                                </select>
+                                <label for="animal-label">Detalle visible (opcional)</label>
+                                <input id="animal-label" name="label" maxlength="100" placeholder="Ej. Cachorro">
+                                <label for="animal-description">Descripción</label>
+                                <textarea id="animal-description" name="description" rows="3" required maxlength="1000"></textarea>
+                                <label for="animal-image">Ruta de imagen o URL HTTPS</label>
+                                <input id="animal-image" name="image_url" placeholder="img/mascota.jpg o https://..." maxlength="500">
+                                <label for="animal-alt">Texto alternativo de la imagen</label>
+                                <input id="animal-alt" name="image_alt" maxlength="250">
+                                <div class="acciones">
+                                    <button class="btn" type="submit">Guardar mascota</button>
+                                    <button id="cancel-edit" class="btn btn-secondary" type="button" hidden>Cancelar edición</button>
+                                </div>
+                            </form>
+                        </div>
+                        <section class="admin-card admin-section"><h2>Todos los animales</h2><div id="animal-list" class="admin-list"></div></section>
+                    </section>
+
+                    <section class="admin-view" data-panel="adoptions" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">HOGARES RESPONSABLES</span><h1>Solicitudes de adopción</h1></div></div>
+                        <section class="admin-card"><div id="adoption-list" class="admin-list"></div></section>
+                    </section>
+
+                    <section class="admin-view" data-panel="messages" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">CONTACTO</span><h1>Mensajes recibidos</h1></div></div>
+                        <section class="admin-card"><div id="message-list" class="admin-list"></div></section>
+                    </section>
+
+                    <section class="admin-view" data-panel="content" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">PUBLICACIONES</span><h1>Blog y contenido</h1></div></div>
+                        <div class="admin-card">
+                            <h2 id="post-form-heading">Crear publicación</h2>
+                            <form id="post-form" class="form admin-animal-form">
+                                <input name="id" type="hidden">
+                                <label for="post-title">Título</label>
+                                <input id="post-title" name="title" required maxlength="140">
+                                <label for="post-summary">Resumen</label>
+                                <textarea id="post-summary" name="summary" rows="3" required maxlength="500"></textarea>
+                                <label for="post-image">Ruta de imagen o URL HTTPS</label>
+                                <input id="post-image" name="image_url" placeholder="img/articulo.jpg o https://..." maxlength="500">
+                                <label for="post-alt">Texto alternativo de la imagen</label>
+                                <input id="post-alt" name="image_alt" maxlength="250">
+                                <label for="post-status">Visibilidad</label>
+                                <select id="post-status" name="status" required>
+                                    <option value="draft">Borrador</option>
+                                    <option value="published">Publicado</option>
+                                </select>
+                                <div class="acciones">
+                                    <button class="btn" type="submit">Guardar publicación</button>
+                                    <button id="cancel-post-edit" class="btn btn-secondary" type="button" hidden>Cancelar edición</button>
+                                </div>
+                            </form>
+                        </div>
+                        <section class="admin-card admin-section"><h2>Publicaciones</h2><div id="post-list" class="admin-list"></div></section>
+                    </section>
+
+                    <section class="admin-view" data-panel="donations" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">APOYO AL REFUGIO</span><h1>Donaciones</h1></div></div>
+                        <div class="dashboard-cards donation-cards">
+                            <article class="dashboard-card"><span>Total registrado</span><strong id="donation-total">—</strong><small>Según los registros del procesador configurado</small></article>
+                            <article class="dashboard-card"><span>Número de donaciones</span><strong id="donation-count">—</strong><small>Incluye solo pagos confirmados por la API</small></article>
+                        </div>
+                        <section class="admin-card"><h2>Historial de donaciones</h2><p class="admin-note">El sitio no cobra ni almacena pagos por sí mismo. Este historial requiere conectar el procesador de pagos a la API.</p><div id="donation-list" class="admin-list"></div></section>
+                    </section>
+
+                    <section class="admin-view" data-panel="settings" hidden>
+                        <div class="admin-page-heading"><div><span class="admin-eyebrow">CONTENIDO PÚBLICO</span><h1>Datos del sitio</h1></div></div>
+                        <section class="admin-card">
+                            <h2>Contacto y donaciones</h2>
+                            <p class="admin-note">Estos datos aparecerán en la página pública una vez que la API esté conectada.</p>
+                            <form id="settings-form" class="form admin-settings-form">
+                                <label for="setting-email">Correo de contacto</label>
+                                <input id="setting-email" name="contactEmail" type="email" maxlength="254">
+                                <label for="setting-phone">Teléfono</label>
+                                <input id="setting-phone" name="contactPhone" maxlength="50">
+                                <label for="setting-hours">Horario</label>
+                                <input id="setting-hours" name="openingHours" maxlength="160">
+                                <label for="setting-donation">Enlace de donación (HTTPS)</label>
+                                <input id="setting-donation" name="donationUrl" type="url" placeholder="https://..." maxlength="500">
+                                <button class="btn" type="submit">Guardar datos del sitio</button>
+                            </form>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
