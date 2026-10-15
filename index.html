@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patitas | Refugio y adopción de mascotas</title>
+    <meta name="description" content="Patitas es un refugio que rescata, cuida y da en adopción perros, gatos y otras mascotas. Conoce a nuestros huéspedes y deja una huella en tu corazón.">
+    <meta name="theme-color" content="#316B83">
+    <meta property="og:title" content="Patitas | Refugio y adopción de mascotas">
+    <meta property="og:description" content="Deja una huella en tu corazón. Adopta una mascota.">
+    <meta property="og:image" content="img/hero.jpg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BE%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+        <div class="contenedor barra">
+            <a class="logo icon-paw" href="#inicio">Patitas</a>
+            <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+                <span class="icon-menu"></span>
+            </button>
+            <nav id="menu" class="menu" aria-label="Principal">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#mascotas">Mascotas</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#adopta">Adopta</a></li>
+                    <li><a class="btn-nav" href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <section id="inicio" class="hero">
+            <img src="img/hero.jpg" alt="Una familia disfruta de un picnic en el parque junto a su perro" width="1600" height="1087">
+            <div class="contenedor hero-texto">
+                <h2>Patitas</h2>
+                <p>Deja una huella en tu corazón</p>
+                <div class="acciones">
+                    <a class="btn" href="#mascotas">Conoce a nuestros huéspedes</a>
+                    <a class="btn btn-claro" href="#adopta">Cómo adoptar</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="bienvenidos" class="bloque">
+            <div class="contenedor estrecho centrado">
+                <h2>Bienvenido a nuestro refugio</h2>
+                <p class="lead">En Patitas rescatamos animales que lo han perdido todo, les damos cuidados, cariño y una segunda oportunidad. Nuestra meta es que cada uno encuentre un hogar donde sea amado para siempre.</p>
+            </div>
+            <div class="contenedor tres">
+                <div class="valor"><h3>Rescatamos</h3><p>Acogemos animales abandonados o maltratados y les damos un lugar seguro.</p></div>
+                <div class="valor"><h3>Cuidamos</h3><p>Atención veterinaria, alimentación y mucho cariño hasta que llegue su familia.</p></div>
+                <div class="valor"><h3>Adoptamos</h3><p>Acompañamos el proceso para que la adopción sea responsable y feliz.</p></div>
+            </div>
+        </section>
+
+        <section id="mascotas" class="bloque fondo-suave">
+            <div class="contenedor">
+                <h2 class="centrado">Conoce a nuestros huéspedes</h2>
+                <p class="centrado sub">Están en busca de un hogar amoroso.</p>
+                <div class="grid-pets">
+                    <article class="pet">
+                        <img src="img/docker.jpg" alt="Docker, cachorro salchicha de orejas largas, en brazos de una persona" width="600" height="600" loading="lazy">
+                        <div class="pet-info"><h3>Docker</h3><span class="tag">Perro · Cachorro</span><p>Tranquilo y mimoso. Le encanta que lo carguen.</p>
+                        <a class="btn btn-sm" href="#contacto" data-pet="Docker">Quiero conocerlo</a></div>
+                    </article>
+                    <article class="pet">
+                        <img src="img/lulu-lili.jpg" alt="Lulu y Lili, dos cachorros jugando juntos" width="600" height="600" loading="lazy">
+                        <div class="pet-info"><h3>Lulu y Lili</h3><span class="tag">Perras · Cachorras</span><p>Inseparables y juguetonas. Buscan hogar juntas.</p>
+                        <a class="btn btn-sm" href="#contacto" data-pet="Lulu y Lili">Quiero conocerlas</a></div>
+                    </article>
+                    <article class="pet">
+                        <img src="img/lorenzo.jpg" alt="Lorenzo, un loro verde posado sobre una mano" width="600" height="600" loading="lazy">
+                        <div class="pet-info"><h3>Lorenzo</h3><span class="tag">Loro</span><p>Curioso y sociable. Se sube a tu mano sin miedo.</p>
+                        <a class="btn btn-sm" href="#contacto" data-pet="Lorenzo">Quiero conocerlo</a></div>
+                    </article>
+                    <article class="pet">
+                        <img src="img/mr-bread.jpg" alt="Mr Bread, un gato con una rebanada de pan alrededor de la cara" width="600" height="600" loading="lazy">
+                        <div class="pet-info"><h3>Mr Bread</h3><span class="tag">Gato</span><p>El más divertido del refugio. Ideal para quien ama reír.</p>
+                        <a class="btn btn-sm" href="#contacto" data-pet="Mr Bread">Quiero conocerlo</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="bloque">
+            <div class="contenedor">
+                <h2 class="centrado">Temas en nuestro refugio</h2>
+                <div class="grid-blog">
+                    <article class="post">
+                        <img src="img/adopta.jpg" alt="Una mano acaricia a un perro en una jornada de adopción" width="900" height="568" loading="lazy">
+                        <div class="post-info"><h3>Adopta a tu mascota ideal</h3><p>Piensa en tu espacio, tu tiempo y tu energía. La mejor mascota es la que encaja con tu estilo de vida.</p></div>
+                    </article>
+                    <article class="post">
+                        <img src="img/cuidados.jpg" alt="Un reptil verde descansando entre troncos y hojas" width="900" height="600" loading="lazy">
+                        <div class="post-info"><h3>Cómo cuidar a tu mascota</h3><p>Alimentación, salud, ejercicio y cariño: lo básico para que tu compañero viva feliz y sano.</p></div>
+                    </article>
+                    <article class="post">
+                        <img src="img/graciosa.jpg" alt="Un cachorro chihuahua asomado dentro de una taza con lunares" width="900" height="600" loading="lazy">
+                        <div class="post-info"><h3>Mi mascota, la más graciosa</h3><p>Comparte con nosotros las travesuras de tu peludo y celebra a los compañeros que nos alegran el día.</p></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="bloque fondo-suave">
+            <div class="contenedor estrecho centrado">
+                <h2>Mira cómo es un día en Patitas</h2>
+                <video controls preload="metadata" poster="img/video-poster.jpg" playsinline>
+                    <source src="video/patitas.mp4" type="video/mp4">
+                    Tu navegador no puede reproducir este video.
+                </video>
+            </div>
+        </section>
+
+        <section id="adopta" class="bloque">
+            <div class="contenedor">
+                <h2 class="centrado">Adoptar es fácil</h2>
+                <ol class="pasos">
+                    <li><strong>Conócelos</strong><span>Mira a nuestros huéspedes y elige a quien conecte contigo.</span></li>
+                    <li><strong>Escríbenos</strong><span>Completa el formulario de contacto y cuéntanos sobre ti.</span></li>
+                    <li><strong>Visítanos</strong><span>Agendamos una cita para que lo conozcas en persona.</span></li>
+                    <li><strong>Llévalo a casa</strong><span>Firmamos el compromiso de adopción responsable y ¡listo!</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="ayuda" class="ayuda">
+            <div class="contenedor centrado">
+                <h2>¿No puedes adoptar? Puedes ayudar</h2>
+                <p>Con donaciones, apadrinando a un animal o como voluntario, cada gesto suma.</p>
+                <a class="btn" href="#contacto" data-pet="Quiero ayudar">Quiero ayudar</a>
+            </div>
+        </section>
+
+        <section id="contacto" class="bloque">
+            <div class="contenedor dos">
+                <div>
+                    <h2>Contáctanos</h2>
+                    <p>Escríbenos y te respondemos lo antes posible.</p>
+                    <ul class="datos">
+                        <li><strong>Correo:</strong> contacto@patitas.org</li>
+                        <li><strong>Teléfono:</strong> +57 300 000 0000</li>
+                        <li><strong>Horario:</strong> Lunes a sábado, 9:00 a. m. – 5:00 p. m.</li>
+                    </ul>
+                </div>
+                <form id="form" class="form">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" required autocomplete="name">
+                    <label for="email">Correo electrónico</label>
+                    <input id="email" name="email" type="email" required autocomplete="email">
+                    <label for="mascota">Me interesa</label>
+                    <select id="mascota" name="mascota">
+                        <option>Información general</option>
+                        <option>Docker</option>
+                        <option>Lulu y Lili</option>
+                        <option>Lorenzo</option>
+                        <option>Mr Bread</option>
+                        <option>Quiero ayudar</option>
+                    </select>
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <button class="btn" type="submit">Enviar mensaje</button>
+                    <p id="ok" class="ok" role="status" hidden>¡Gracias! Se abrirá tu correo para enviar el mensaje.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contenedor pie">
+            <p>Patitas &copy; 2021 – <span id="year">2026</span> · Manuel Felipe Murcia Suárez</p>
+            <div class="sociales">
+                <a class="icon-facebook" href="#" aria-label="Facebook"></a>
+                <a class="icon-twitter" href="#" aria-label="Twitter"></a>
+                <a class="icon-instagram" href="#" aria-label="Instagram"></a>
+                <a class="icon-pinterest" href="#" aria-label="Pinterest"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
